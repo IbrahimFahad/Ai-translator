@@ -1,0 +1,167 @@
+#header
+{
+    background-image: url(/assets/worldmap.png);
+    background-size: cover;
+    background-position: center;
+    width: auto;
+    height: 213px;
+}
+
+.logo
+{
+      width: 94px;
+      height: 84px;
+      position: absolute;
+      top: 75px;
+      left: 75px;
+}
+.text-div
+{
+    width: 250px;
+    height: 75px;
+    position: absolute;
+    top: 75px;
+    left: 180px;
+    
+}
+.pollyglot-lbl
+{
+    color: #32CD32;
+    font-size: 50px;
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 700;
+}
+.lbl-2
+{
+    font-size: small;
+    color: white;
+    display: block;
+    font-weight: 200;
+    font-family: Poppins;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  
+}
+
+#content
+{
+    position: absolute;
+    left: 20px;
+    bottom: 40px;
+    width: 400px;
+    height: 505px;
+    border: 6px solid black;
+    border-radius: 15px; 
+  
+}
+
+.lbl-3
+{
+    font-family:Poppins ;
+    font-weight: Bold;
+    color: #035A9D;
+    font-size: 25px;
+    position: absolute;
+    left: 80px;
+    top: 40px;
+}
+
+.input-form
+{
+    width:317px ;
+    height: 118px;
+    position: relative;
+    top: 100px;
+    left: 37px;
+    border-radius: 8px;
+     border: 1px solid transparent; 
+    background-color: #EFF0F4;
+    resize: none;       
+    overflow-y: auto; 
+    font-family:Poppins ;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-top: 10px;
+    color: #333333;
+    font-weight: bold;  
+}
+
+
+.lbl-4
+{
+    font-family:Poppins ;
+    font-weight: Bold;
+    color: #035A9D;
+    font-size: 25px;
+    position: absolute;
+    left: 80px;
+    top: 250px;
+}
+
+.options
+{
+   
+    position: relative;
+    top: 155px;
+    width: 317px;
+    height: 118px;
+    left: 80px;
+    font-family:Poppins ;
+    font-weight: Bold;
+    
+}
+
+  .options label {
+    font-size: 18px;
+    cursor: pointer;
+     display: block;
+    margin-bottom: 0.5px;
+  }
+  .options input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+  }
+  
+  .btn
+  {
+    position: relative;
+    width: 322px;
+    height: 50px;
+    left: 35px;
+    top: 165px;
+    border-radius: 8px;
+    border: 1px solid transparent; 
+    background-color: #035A9D;
+    font-family:Poppins ;
+    font-weight: bolder;
+    color: white;
+    font-size: 25px;
+  }
+  
+#input-form-2
+{
+    width:317px ;
+    height: 118px;
+    position: relative;
+    top: 150px;
+    left: 37px;
+    border-radius: 8px;
+     border: 1px solid transparent; 
+    background-color: #EFF0F4;
+    resize: none;       
+    overflow-y: auto; 
+    font-family:Poppins ;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-top: 10px;
+    color: #333333;
+    font-weight: bold; 
+}
+.flags
+{
+  position: relative;
+  top: 6px;
+  left: 5px;
+}
