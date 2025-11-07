@@ -6,14 +6,6 @@ function handleSubmit() {
   return { input_text, selected_lan };
 }
 
-async function goToPage() {
-  const { input_text, selected_lan } = handleSubmit();
-  const text = await transleted(input_text, selected_lan);
-  localStorage.setItem("originalText", input_text);
-  localStorage.setItem("text", text);
-  window.location.href = "Results_view.html";
-}
-
 window.addEventListener("DOMContentLoaded", () => {
   const originalBox = document.querySelector(".input-form");
   const outputBox = document.getElementById("input-form-2");
@@ -24,20 +16,40 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+document.querySelector(".btn").addEventListener("click", function () {
+  const { input_text, selected_lan } = handleSubmit();
+  transleted(input_text, selected_lan)
+    .then((text) => {
+      localStorage.setItem("originalText", input_text);
+      localStorage.setItem("text", text);
+      window.location.href = "Results_view.html";
+    })
+    .catch((err) => {
+      console.error("Translation error:", err);
+      alert("Translation failed");
+    });
+});
+
 async function transleted(input_text, selected_lan) {
-  const messages = [
-    {
-      role: "system",
-      content:
-        "You are an expert multilingual translator specializing in French, Spanish, and Japanese. When the user provides text and specifies a target language",
-    },
-    {
-      role: "user",
-      content: `${input_text} -> ${selected_lan}`,
-    },
-  ];
+  let resultText = "Translation failed";
+  try {
+    const url = "https://openai-worker.openai-ibro.workers.dev/";
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
 
-  return response.choices[0].message.content;
+      body: JSON.stringify({
+        content: `${input_text} -> ${selected_lan}`,
+      }),
+    });
+    const result = await response.json();
+    console.log("API result:", result);
+
+    resultText = result;
+  } catch (e) {
+    console.error("Translation error:", e.message);
+    loadingArea.innerText = "Unable to access AI. Please refresh and try again";
+  }
+
+  return resultText;
 }
-
-window.goToPage = goToPage;

@@ -1,40 +1,46 @@
 <!doctype html>
 <html>
-    <head>
-        <link rel="stylesheet" href="index.css">
-        <link href='https://fonts.googleapis.com/css?family=Big Shoulders Display' rel='stylesheet'>
-        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    </head>
-    <body>
-        <div id="header">
-            <div class="text-div">
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <link href='https://fonts.googleapis.com/css?family=Big Shoulders Display' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+
+<body>
+    <div id="header">
+        <div class="text-div">
             <label class="pollyglot-lbl">PollyGlot</label>
             <label class="lbl-2">Perfect Translation Every Time</label>
-            </div>
-            <img src="/assets/parrot.png" class="logo">
         </div>
-        
-        <div id="content">
-            <label class="lbl-3"> Text to translate 👇</label>
-        
-            <textarea placeholder="How are you?" class="input-form" ></textarea> 
-            
-            <label class="lbl-4"> Select language 👇</label>
-            
-            <div class="options">
-                <form>
-                <label> <input type="radio" name="language" value="French"> French <img src="/assets/fr-flag.png" class="flags"></label>
+        <img src="/assets/parrot.png" class="logo">
+    </div>
+
+    <div id="content">
+        <label class="lbl-3"> Text to translate 👇</label>
+
+        <textarea placeholder="How are you?" class="input-form"></textarea>
+
+        <label class="lbl-4"> Select language 👇</label>
+
+        <div class="options">
+            <form>
+                <label> <input type="radio" name="language" value="French"> French <img src="/assets/fr-flag.png"
+                        class="flags"></label>
                 <br>
-                <label> <input type="radio" name="language" value="Spanish">  Spanish <img src="/assets/sp-flag.png" class="flags"></label></label>
+                <label> <input type="radio" name="language" value="Spanish"> Spanish <img src="/assets/sp-flag.png"
+                        class="flags"></label></label>
                 <br>
-                <label> <input type="radio" name="language" value="Japanese"> Japanese <img src="/assets/jpn-flag.png" class="flags"></label> </label>
-                <br>  
-                </form>
-            </div>
-          
-            <button class="btn" onclick="goToPage()">Translate</button>
-            
+                <label> <input type="radio" name="language" value="Japanese"> Japanese <img src="/assets/jpn-flag.png"
+                        class="flags"></label> </label>
+                <br>
+            </form>
         </div>
-        <script src="index.js" type="module"></script>
-    </body>
+
+        <button class="btn">Translate</button>
+
+    </div>
+    <script src="index.js"></script>
+</body>
+
 </html>
