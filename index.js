@@ -1,20 +1,17 @@
-import OpenAi from 'openai';
-
 function handleSubmit() {
   const input_text = document.querySelector(".input-form").value;
-  const selected_lan = document.querySelector('input[name="language"]:checked').value;
+  const selected_lan = document.querySelector(
+    'input[name="language"]:checked'
+  ).value;
   return { input_text, selected_lan };
 }
 
-
-
 async function goToPage() {
   const { input_text, selected_lan } = handleSubmit();
-  const text = await transleted(input_text,selected_lan); 
+  const text = await transleted(input_text, selected_lan);
   localStorage.setItem("originalText", input_text);
   localStorage.setItem("text", text);
   window.location.href = "Results_view.html";
-  
 }
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -27,39 +24,20 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-async function transleted(input_text,selected_lan)
-{
-    const client = new OpenAi ({
-    
-     dangerouslyAllowBrowser: true
-})
-
-const messages = [
+async function transleted(input_text, selected_lan) {
+  const messages = [
     {
-        role:"system",
-        content:"You are an expert multilingual translator specializing in French, Spanish, and Japanese. When the user provides text and specifies a target language"
+      role: "system",
+      content:
+        "You are an expert multilingual translator specializing in French, Spanish, and Japanese. When the user provides text and specifies a target language",
     },
     {
-        role:"user",
-        content: `${input_text} -> ${selected_lan}`
+      role: "user",
+      content: `${input_text} -> ${selected_lan}`,
+    },
+  ];
 
-    }
-]
-
-const response = await client.chat.completions.create({
-    
-    model:"gpt-4o-mini",
-    messages:messages
-    
-    
-})
   return response.choices[0].message.content;
 }
 
 window.goToPage = goToPage;
-    
-
-
-
-    
-    
