@@ -12,10 +12,12 @@ export default {
 		}
 		const openai = new OpenAI({
 			apiKey: env.OPENAI_API_KEY,
+			baseURL: 'https://gateway.ai.cloudflare.com/v1/1433d8205e17a783fa1805576eb2de76/ai-translator/openai',
 		});
 		try {
 			const data = await request.json();
-			const userContent = data.content;
+			const d_data = delete data.request_id;
+			const userContent = d_data.content;
 			const messages = [
 				{
 					role: 'system',
