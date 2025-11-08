@@ -6,6 +6,8 @@ function handleSubmit() {
   return { input_text, selected_lan };
 }
 
+const loadingArea = document.querySelector(".loading-panel");
+
 window.addEventListener("DOMContentLoaded", () => {
   const originalBox = document.querySelector(".input-form");
   const outputBox = document.getElementById("input-form-2");
@@ -26,7 +28,6 @@ document.querySelector(".btn").addEventListener("click", function () {
     })
     .catch((err) => {
       console.error("Translation error:", err);
-      alert("Translation failed");
     });
 });
 
@@ -45,10 +46,12 @@ async function transleted(input_text, selected_lan) {
     const result = await response.json();
     console.log("API result:", result);
 
+    if (!response.ok) {
+      throw new Error(`Worker Error: ${data.error}`);
+    }
     resultText = result;
   } catch (e) {
     console.error("Translation error:", e.message);
-    loadingArea.innerText = "Unable to access AI. Please refresh and try again";
   }
 
   return resultText;
