@@ -1,7 +1,9 @@
-import {defineConfig} from "vite"
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-	plugins: [
-		
-	]
-})
+  build: {
+    rollupOptions: {
+      input: 'Initial_view.html'
+    }
+  }
+});
